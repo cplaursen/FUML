@@ -1,10 +1,25 @@
 #!/usr/bin/env python3
 
-def probMLE(x, val = 0):
-    return sum(1 for i in x if i==val) / len(x)
+def probMLE(x, val=0):
+    return sum(1 for i in x if i == val) / len(x)
 
-def probBayes(x, val = 0):
-    return (sum(1 for i in x if i==val) + 1) / (len(x) + 1)
+def probBayes(x, val=0):
+    return (sum(1 for i in x if i == val) + 1) / (len(x) + 2)
+
+def probBayesCond(x, y, yval=0, xval=0):
+    r = sum(1 for i in range(len(x)) if x[i] == xval and y[i] == yval)
+    n = sum(1 for i in x if i == xval)
+    alpha = 1 + r
+    beta = 1 + n - r
+    return alpha/(alpha + beta)
+
+def probJoint(x, y, yval=0, xval=0):
+    return sum(1 for i in range(len(x)) if x[i] == xval and y[i] == yval) / len(x)
+
+def probMLECond(x, y, yval=0, xval=0):
+    pXY = probJoint(x, y, yval, xval)
+    return pXY / probMLE(y, yval)
+
 
 def main():
     with open("discrete.csv") as file:
@@ -12,13 +27,33 @@ def main():
         data_lines = file.read().strip().split('\n')
         data = {i:[] for i in headers}
         for line in data_lines:
-            print(line)
             for n, i in enumerate(line.strip().split(',')):
                 data[headers[n]].append(int(i))
-        print(probMLE(data['Y'], 1))
-        print(probBayes(data['Y'], 1))
-        print(probMLECond(data['X1'], data['Y']))
+        print(probMLE(data['Y'], 0))
+        print(probMLECond(data['X1'], data['Y'], 1))
+        print(probMLECond(data['X1'], data['Y'], 0))
+    formatAnswer(data)
 
+def formatAnswer(data):
+    print(f'''
+MLE:
+P(Y=0) = {probMLE(data['Y'], 0)}
+P(X1=0|Y=0) = {probMLECond(data['X1'], data['Y'], 0)}
+P(X1=0|Y=1) = {probMLECond(data['X1'], data['Y'], 1)}
+P(X2=0|Y=0) = {probMLECond(data['X2'], data['Y'], 0)}
+P(X2=0|Y=1) = {probMLECond(data['X2'], data['Y'], 1)}
+P(X3=0|Y=0) = {probMLECond(data['X3'], data['Y'], 0)}
+P(X3=0|Y=1) = {probMLECond(data['X3'], data['Y'], 1)}
+
+Bayesian
+P(Y=0) = {probBayes(data['Y'], 0)}
+P(X1=0|Y=0) = {probBayesCond(data['X1'], data['Y'], 0)}
+P(X1=0|Y=1) = {probBayesCond(data['X1'], data['Y'], 1)}
+P(X2=0|Y=0) = {probBayesCond(data['X2'], data['Y'], 0)}
+P(X2=0|Y=1) = {probBayesCond(data['X2'], data['Y'], 1)}
+P(X3=0|Y=0) = {probBayesCond(data['X3'], data['Y'], 0)}
+P(X3=0|Y=1) = {probBayesCond(data['X3'], data['Y'], 1)}
+''')
 
 if __name__ == "__main__":
     main()
