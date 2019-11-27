@@ -1,0 +1,39 @@
+\documentclass[11pt]{article}
+\usepackage{biblatex}
+\bibliography{PMCS}
+
+\begin{document}
+\section*{Question 3}
+
+For safety-critical applications, it is essential for the supplier to correctly test their software in order to provide a strong guarantee that it is correct. Failure to do so can result in grave issues; nowhere is this more evident than in the Therac-25 accidents~\cite{therac}, where deaths and serious injuries were caused by programming errors and a lack of testing. Since an X-ray overdose can significantly increase the risk of cancer and even cause radiation sickness~\cite{rad}, there are parallels to be drawn to Therac-25, which means that rigorous testing should be performed to ensure that history does not repeat itself.
+
+Stakeholders impacted: \begin{itemize}
+
+    \item Patients\\
+    The stakeholder most impacted by the decision of delaying the project or skipping testing are the patients receiving radiation therapy. Were the software engineer to choose not to delay, they would be willingly putting the patients in danger of an overdose. A delay would likely not affect the patients much, assuming that the current software that the x-ray machines use has been appropriately tested.
+
+    \item Healthcare professionals\\
+    Any issues caused by the x-ray machine would also require the patients' healthcare professionals to expend additional resources in order to heal them.
+
+    \item Machine operators\\
+    Another negatively impacted stakeholder are the x-ray machine operators. Firstly, a failure of the x-ray machine would render the results useless as the image produced would likely not be usable. In addition to this, were the machine to become unusable after a faliure this would require resources to be used to either repair or replace the machine.
+
+    \item Company shareholders\\
+    A delay in releasing the product would mainly affect the company's shareholders and executives, as it could potentially cause a loss of revenue due to more developer time needed for the release and a potential decrease in customer engagement. However, a software failure would likely cause heavy reputational damage for the company. Because any failure can put lives at stake, hospitals are likely to revoke their trust of the company at the first sign that their development practices are flawed.
+
+    \item Company employees and staff\\
+    Decrease in morale and company trust
+
+    \item Engineers\\
+    The technical people involved in the project would be negatively affected by a delay, which might make them incapable of continuing their work due to the critical path delay which would presumably be caused by the delay.
+
+    \item Engineers break the ACM code of ethics\\
+    Finally, the engineer writing the software would be breaching the ACM code of ethics~\cite{acm-ethics}.
+
+\end{itemize}
+
+Taking all this into account, there are very compelling reasons for delaying the deployment of the software, as every stakeholder involved would be negatively affected by a faliure. The only situation where it might be ethically acceptable to not delay the release is if the code is not safety-critical at all, although this seems unlikely for an x-ray machine.
+
+\newpage
+\printbibliography{}
+\end{document}

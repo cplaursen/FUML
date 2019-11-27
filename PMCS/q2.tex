@@ -1,0 +1,30 @@
+\documentclass[11pt]{article} \usepackage{biblatex} \bibliography{PMCS}
+
+\begin{document} \section*{Question 2} \textbf{Introduction}\\ Cybersecurity is
+a very important factor for healthcare enterprises, as a data leak could
+release sensitive patient information into the world and GDPR strongly imposes
+protection on patient data.
+
+When storing this information in the cloud, YorKlinic must put special care
+into ensuring that it is kept secure, but thankfully AWS provides a wide array
+of tools to aid this process.
+
+However, even though AWS is very powerful it is also designed for large-scale
+enterprises, and the overhead this causes might conflict with YorKlinic's
+intention to stay lean.
+
+Points: 
+\begin{itemize} 
+    \item AWS security tools \\ AWS provides tools for database management and encryption through RDS \-- relational database system. 
+
+    \item YorKlinic's capabilities \begin{itemize}
+        \item Development team \\ As a small company, the development team of YorKlinic might be limited in resources, and they may resort to COTS (commercial off-the-shelf) solutions for ensuring security. These may not be verified or might not work with the security model required for medical data, which could be a large threat. 
+
+        \item Entire company implications \\ To bolster security and minimize the risk of attacks, YorKlinic will have to establish security protocols that will encompass everyone in the company. Because the medical data will need to be accessed often \textbf{citation needed}, measures need to be taken to ensure secure access and proper handling of the data. As the data is stored on a cloud server, it is of utmost importance that the access credentials are not intercepted. 
+
+    \end{itemize} 
+
+\item Challenges for a small-scale company working in an enterprise-scale security model AWS is an enterprise-scale service which accommodates small-scale companies, but this does not come without costs. Encryption of all data will be required but introduces an overhead in storing and retrieving the data, which is worsened by the fact that it is all stored off-site. However, this also reduces the risk when compared to storing the data on-site, where a physical threat is more likely and attackers would have more ready access to the infrastructure.
+
+\end{itemize} 
+\end{document}
