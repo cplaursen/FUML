@@ -3,60 +3,103 @@
 \bibliography{PMCS}
 
 \begin{document}
-\title{Project Management for Computer Scientists\\
-\vspace{5mm}
-\Large Open Individual Assessment}
 \author{Exam number: Y3858851}
+\title{Project Management for Computer Scientists \\ {\large Open Individual Assessment}}
 \date{}
 \maketitle
-
 \section*{Question 1} 
-Useful:
+
+Introduction
+
+The dynamics of a single-person academic project can be very different to those of a team project working in a commercial setting, where many more factors can affect the outcome.
+
+In my personal project, there are no resources to be managed other than myself, very few cybersecurity risks and even less ethical issues.
+
+However, by establishing the project scope, planning, and managing risks correctly, my project can benefit from project management techniques which are applicable to any project.
+
 \begin{itemize}
-    \item Planning:
-    \begin{itemize}
-        \item Product-led planning
-        \item Activity list
-    \end{itemize}
 
     \item Project scope:
+    Firstly, defining a project scope sets out clearly what the goals, timeframes and constraints of the project are. This technique will make it easier to apply other project management techniques, as well as allowing the project owner to have a clear view of what their goals are.
     \begin{itemize}
         \item Objective
         \item Time
         \item Constraints
     \end{itemize}
 
-    \item Risks:
+    \item Planning:
+    Planning is another extremely useful technique for any project, as it allows the owner to see how the project is progressing, and adjust appropriately if it falls off schedule.
+    By setting appropriate product-based milestones using product-led planning and keeping of the necessary steps with an activity list, one can have concrete indicators of how far the project is in its lifecycle and what the next step to take is.
+    \begin{itemize}
+        \item Product-led planning
+        \item Activity list
+        \item \textbf{Work flow diagram \-- not useful}
+    \end{itemize}
+
+    \item Risks: \textbf{Include examples of risks}
+    Finally, every project has risks, and keeping track of them is the key to ensuring the project is not derailed by an unforeseen circumstance. Using risk assessment techniques, one can include uncertainty into their planning and actions to maximize the chances that the project is completed successfully.
+    This is implemented in the risk cycle, where risks are continually assessed throughout the project and contingency plans are made to manage, mitigate or remediate the risks. By assigning an exposure value to each identified risk, the relative importance of each risk is put into perspective and will guide the management strategies that are identified.
     \begin{itemize}
         \item Risk cycle \-- continually reassess risks
         \item Risk exposure + management
-        \item Work flow diagram
     \end{itemize}
-\end{itemize}
-Useless:
+
+
+    \item Useless:
+    Not all project management techniques apply to a single person project, however, and in my case my project does not require me to manage any resources, as the only resources involved in my project are me and my laptop.
+
+    There are no major cybersecurity issues either, as I will be writing non safety-critical software with no network access and few permissions. Finally there are no ethics or legal issues for me to deal with
 \begin{itemize}
-    \item Stakeholders
+    \item Stakeholders \textbf{maybe?}
+    \item CSec
     \item Resource management
     \item Ethics
 \end{itemize}
+\end{itemize}
+
 \section*{Question 2}
-Points:
-\begin{itemize}
-    \item AWS security tools
-    \item YoKlinic's capabilities
-    \item Challenges for a small-scale company working in an enterprise-scale security model
-\end{itemize}
+\textbf{Introduction}\\
+For a small startup, using AWS instead of having an in-house datacenter provides many advantages, but it does not come without its risks. As YorKlinic will be dealing with medical data, strong cybersecurity practices are a must, due to the strict regulations surrounding patient data and the very negative consequences a data breach would have for both the patients and the company. AWS is not failproof in this regard, as there have been significant data breaches in the past~\cite{breach}, but it provides much stronger security than what the YorKlinic development team would be able to achieve.
+
+For secure environments, AWS provides the Amazon Virtual Private Cloud (VPC), which allows users to define a logically isolated environment in which to run their applications, with advanced security features such as security groups and network access control lists~\cite{vpc}. This seems like a perfect fit for YorKlinic, who might require these features to ensure that data is accessed only by those allowed.
+    
+In addition, AWS provides tools for database management and encryption through RDS \-- relational database system. Data can be encrypted in transit via SSL, which is a must when storing sensitive information, and has granular control over who is able to access the data via AWS Identity and Access Management. This can be run in a VPC for additional security and better interoperability with the other applications~\cite{rds}.
+
+\item Development team \\
+There are a number of setbacks the YorKlinic development team have to take into account when developing their applications in the cloud. Firstly, they have to deal with the risk that their server might be attacked by a malicious agent. This can be minimized by correctly configuring their servers and establishing company-wide policies which aim to protect the access credentials held by employees who use the systems for data entry and access. These policies might include restrictions on password and data sharing.
+
+Second, AWS is an enterprise-scale service which accommodates small-scale companies, but this does not come without costs. Encryption of all data will be required but introduces an overhead in storing and retrieving the data, which is worsened by the fact that it is all stored off-site. However, this also reduces the risk when compared to storing the data on-site, where a physical threat is more likely and attackers would have more ready access to the infrastructure.
+
 \section*{Question 3}
-Stakeholders impacted:
-\begin{itemize}
-    \item Patients undergoing X-ray therapy are put in danger.
-    \item Their healthcare proffessionals have to put in more work which wastes resources.
-    \item Heavy reputational harm for the company \-- were the software to fail. Loss of profit on delay.
-    \item Shareholders mad at delay.
-    \item Critical path delay for other software engineers, slowing everyone down.
-    \item Hospital staff only marginally affected by delay. Would incur in costs if errors did occur.
-    \item Engineers break the ACM code of ethics~\cite{acm-ethics}.
+
+For safety-critical applications, it is essential for the supplier to correctly test their software in order to provide a strong guarantee that it is correct. Failure to do so can result in grave issues; nowhere is this more evident than in the Therac-25 accidents~\cite{therac}, where deaths and serious injuries were caused by programming errors and a lack of testing. Since an X-ray overdose can significantly increase the risk of cancer and even cause radiation sickness~\cite{rad}, there are parallels to be drawn to Therac-25, which means that rigorous testing should be performed to ensure that history does not repeat itself.
+
+Stakeholders impacted: \begin{itemize}
+
+    \item Patients\\
+    The stakeholder most impacted by the decision of delaying the project or skipping testing are the patients receiving radiation therapy. Were the software engineer to choose not to delay, they would be willingly putting the patients in danger of an overdose. A delay would likely not affect the patients much, assuming that the current software that the x-ray machines use has been appropriately tested.
+
+    \item Healthcare professionals\\
+    Any issues caused by the x-ray machine would also require the patients' healthcare professionals to expend additional resources in order to heal them.
+
+    \item Machine operators\\
+    Another negatively impacted stakeholder are the x-ray machine operators. Firstly, a failure of the x-ray machine would render the results useless as the image produced would likely not be usable. In addition to this, were the machine to become unusable after a faliure this would require resources to be used to either repair or replace the machine.
+
+    \item Company shareholders\\
+    A delay in releasing the product would mainly affect the company's shareholders and executives, as it could potentially cause a loss of revenue due to more developer time needed for the release and a potential decrease in customer engagement. However, a software failure would likely cause heavy reputational damage for the company. Because any failure can put lives at stake, hospitals are likely to revoke their trust of the company at the first sign that their development practices are flawed.
+
+    \item Company employees and staff\\
+    Decrease in morale and company trust
+
+    \item Engineers\\
+    The technical people involved in the project would be negatively affected by a delay, which might make them incapable of continuing their work due to the critical path delay which would presumably be caused by the delay.
+
+    \item Engineers break the ACM code of ethics\\
+    Finally, the engineer writing the software would be breaching the ACM code of ethics~\cite{acm-ethics}.
+
 \end{itemize}
+
+Taking all this into account, there are very compelling reasons for delaying the deployment of the software, as every stakeholder involved would be negatively affected by a faliure. The only situation where it might be ethically acceptable to not delay the release is if the code is not safety-critical at all, although this seems unlikely for an x-ray machine.
 
 \newpage
 \printbibliography{}
