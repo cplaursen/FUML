@@ -8,7 +8,7 @@ def probBayes(x, val=0):
 
 def probBayesCond(x, y, yval=0, xval=0):
     r = sum(1 for i in range(len(x)) if x[i] == xval and y[i] == yval)
-    n = sum(1 for i in x if i == xval)
+    n = sum(1 for i in y if i == yval)
     alpha = 1 + r
     beta = 1 + n - r
     return alpha/(alpha + beta)
