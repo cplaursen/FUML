@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[12pt]{report}
 \usepackage{biblatex}
 \bibliography{PMCS}
 
@@ -11,52 +11,17 @@
 
 Introduction
 
-The dynamics of a single-person academic project can be very different to those of a team project working in a commercial setting, where many more factors can affect the outcome.
+For a single-person academic project, the techniques of scope management, planning, and risk management can be very useful to ensure that the project is completed on time and all requirements are met. The techniques of stakeholder management and resource management can also be useful, but are less suitable in most cases.\\ 
 
-In my personal project, there are no resources to be managed other than myself, very few cybersecurity risks and even less ethical issues.
+Before the project begins, it is crucial to define the \textbf{project scope} in order to have a clear idea of how to apply the remaining techniques. By defining a project scope, the goals, timeframes and constraints of the project are clearly established. For the individual project, the goals and timeframe are provided by the university, and it is important to have them present when going through the various stages of the project. Constraints for this project include the time restrictions imposed by the project being part-time, and the need for learning and background reading before the project work can be done.\\
 
-However, by establishing the project scope, planning, and managing risks correctly, my project can benefit from project management techniques which are applicable to any project.
+Having a clear scope, another extremely useful technique is \textbf{planning}. Product-led planning can be applied by considering various sections of the final paper as products. Given a product list, activity planning can be used to establish a clear plan of action, as well as due dates for each project. These allow the student to clearly see how the project is progressing and re-plan with enough time to correct if they fall off track.\\
 
-\begin{itemize}
+Throughout the whole project, \textbf{risk management} allows the student to keep track of and manage any risks that may arise. Examples of risks that may arise include unlikely events, e.g.\ hardware failure or a family issue, but also very likely ones, such as time estimate errors\cite{estimates}. By continually assessing the risks and assigning an exposure value to each one, the student can make changes to their plan depending on which risks have become more or less likely, and develop a contingency plan for when the risks do present themselves.\\
 
-    \item Project scope:
-    Firstly, defining a project scope sets out clearly what the goals, timeframes and constraints of the project are. This technique will make it easier to apply other project management techniques, as well as allowing the project owner to have a clear view of what their goals are.
-    \begin{itemize}
-        \item Objective
-        \item Time
-        \item Constraints
-    \end{itemize}
+There are also techniques which are less applicable to the project, namely \textbf{stakeholder management} and \textbf{resource management}. The stakeholders of the project are, in most cases, the project advisor and the university, and the requirements of the project are given out at the start, leaving no need for continual assessment outside of advisor meetings. Managing resources is also less important in such a project where money is usually not a factor, physical resource requirements are small and the staff is reduced to one person.
 
-    \item Planning:
-    Planning is another extremely useful technique for any project, as it allows the owner to see how the project is progressing, and adjust appropriately if it falls off schedule.
-    By setting appropriate product-based milestones using product-led planning and keeping of the necessary steps with an activity list, one can have concrete indicators of how far the project is in its lifecycle and what the next step to take is.
-    \begin{itemize}
-        \item Product-led planning
-        \item Activity list
-        \item \textbf{Work flow diagram \-- not useful}
-    \end{itemize}
-
-    \item Risks: \textbf{Include examples of risks}
-    Finally, every project has risks, and keeping track of them is the key to ensuring the project is not derailed by an unforeseen circumstance. Using risk assessment techniques, one can include uncertainty into their planning and actions to maximize the chances that the project is completed successfully.
-    This is implemented in the risk cycle, where risks are continually assessed throughout the project and contingency plans are made to manage, mitigate or remediate the risks. By assigning an exposure value to each identified risk, the relative importance of each risk is put into perspective and will guide the management strategies that are identified.
-    \begin{itemize}
-        \item Risk cycle \-- continually reassess risks
-        \item Risk exposure + management
-    \end{itemize}
-
-
-    \item Useless:
-    Not all project management techniques apply to a single person project, however, and in my case my project does not require me to manage any resources, as the only resources involved in my project are me and my laptop.
-
-    There are no major cybersecurity issues either, as I will be writing non safety-critical software with no network access and few permissions. Finally there are no ethics or legal issues for me to deal with
-\begin{itemize}
-    \item Stakeholders \textbf{maybe?}
-    \item CSec
-    \item Resource management
-    \item Ethics
-\end{itemize}
-\end{itemize}
-
+\newpage
 \section*{Question 2}
 \textbf{Introduction}\\
 For a small startup, using AWS instead of having an in-house datacenter provides many advantages, but it does not come without its risks. As YorKlinic will be dealing with medical data, strong cybersecurity practices are a must, due to the strict regulations surrounding patient data and the very negative consequences a data breach would have for both the patients and the company. AWS is not failproof in this regard, as there have been significant data breaches in the past~\cite{breach}, but it provides much stronger security than what the YorKlinic development team would be able to achieve.
@@ -65,11 +30,12 @@ For secure environments, AWS provides the Amazon Virtual Private Cloud (VPC), wh
     
 In addition, AWS provides tools for database management and encryption through RDS \-- relational database system. Data can be encrypted in transit via SSL, which is a must when storing sensitive information, and has granular control over who is able to access the data via AWS Identity and Access Management. This can be run in a VPC for additional security and better interoperability with the other applications~\cite{rds}.
 
-\item Development team \\
+Development team \\
 There are a number of setbacks the YorKlinic development team have to take into account when developing their applications in the cloud. Firstly, they have to deal with the risk that their server might be attacked by a malicious agent. This can be minimized by correctly configuring their servers and establishing company-wide policies which aim to protect the access credentials held by employees who use the systems for data entry and access. These policies might include restrictions on password and data sharing.
 
 Second, AWS is an enterprise-scale service which accommodates small-scale companies, but this does not come without costs. Encryption of all data will be required but introduces an overhead in storing and retrieving the data, which is worsened by the fact that it is all stored off-site. However, this also reduces the risk when compared to storing the data on-site, where a physical threat is more likely and attackers would have more ready access to the infrastructure.
 
+\newpage
 \section*{Question 3}
 
 For safety-critical applications, it is essential for the supplier to correctly test their software in order to provide a strong guarantee that it is correct. Failure to do so can result in grave issues; nowhere is this more evident than in the Therac-25 accidents~\cite{therac}, where deaths and serious injuries were caused by programming errors and a lack of testing. Since an X-ray overdose can significantly increase the risk of cancer and even cause radiation sickness~\cite{rad}, there are parallels to be drawn to Therac-25, which means that rigorous testing should be performed to ensure that history does not repeat itself.
@@ -95,7 +61,7 @@ Stakeholders impacted: \begin{itemize}
     The technical people involved in the project would be negatively affected by a delay, which might make them incapable of continuing their work due to the critical path delay which would presumably be caused by the delay.
 
     \item Engineers break the ACM code of ethics\\
-    Finally, the engineer writing the software would be breaching the ACM code of ethics~\cite{acm-ethics}.
+    Finally, the engineer writing the software would be breaching the ACM code of ethics~\cite{acm-ethics} and the BCS code of ethics~\cite{bcs-ethics}
 
 \end{itemize}
 
