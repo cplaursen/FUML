@@ -1,30 +1,17 @@
-\documentclass[11pt]{article} \usepackage{biblatex} \bibliography{PMCS}
+\documentclass[11pt]{article}
+\usepackage{biblatex}
+\bibliography{PMCS}
+\begin{document} \section*{Question 2}
+Using the cloud instead of an in-house datacenter is a great way of saving costs for a small business, but it does not come without its costs. There are severe security concerns around storing data in the cloud, which are intensified by the fact that medical data is confidential and a data breach would be a very serious issue. However, when used correctly AWS can provide more security than an in-house datacenter could.\\
 
-\begin{document} \section*{Question 2} \textbf{Introduction}\\ Cybersecurity is
-a very important factor for healthcare enterprises, as a data leak could
-release sensitive patient information into the world and GDPR strongly imposes
-protection on patient data.
+For secure environments, AWS provides the Amazon Virtual Private Cloud (VPC), which allows users to define a logically isolated environment in which to run their applications~\cite{vpc}. Together with Amazon RDS \-- relational database system, it can be used to store data securely in the cloud~\cite{rds}. This would be a perfect fit for the YorKlinic development team, who require these features to minimize the risk of a data breach.
+    
+However, the development team would need to have both good security knowledge and practices to ensure that the data is indeed kept securely. This would require the team to spend more time on security instead of development, which could be a drain on YorKlinic's resources. \textbf{Extend this}
 
-When storing this information in the cloud, YorKlinic must put special care
-into ensuring that it is kept secure, but thankfully AWS provides a wide array
-of tools to aid this process.
+By using AWS instead of an in-house datacenter, YorKlinic will not have to spend resources on securing their hardware and can instead delegate this onto Amazon, a reputable, much larger company with many more resources to spend on security. Amazon's customer service can also provide assistance with any issues that would otherwise need to be tackled alone.
 
-However, even though AWS is very powerful it is also designed for large-scale
-enterprises, and the overhead this causes might conflict with YorKlinic's
-intention to stay lean.
+A major disadvantage of keeping data in the cloud is that YorKlinic would be trusting Amazon to keep the data secure, as any hardware issue could potentially leak data and this is completely out of YorKlinic's control. In addition, in the event that a data breach did happen, it might be impossible to find out where the data was compromised~\cite{cloudrisk}.\\
 
-Points: 
-\begin{itemize} 
-    \item AWS security tools \\ AWS provides tools for database management and encryption through RDS \-- relational database system. 
+Another disadvantage is that online data is by nature more vulnerable than data stored on site, and thus it might be easier for an attacker to find a way to breach security. AWS has had data breaches in the past~\cite{breach}, and if large companies storing sensitive resources can have security issues it is likely that securing the data is not trivial.
 
-    \item YorKlinic's capabilities \begin{itemize}
-        \item Development team \\ As a small company, the development team of YorKlinic might be limited in resources, and they may resort to COTS (commercial off-the-shelf) solutions for ensuring security. These may not be verified or might not work with the security model required for medical data, which could be a large threat. 
-
-        \item Entire company implications \\ To bolster security and minimize the risk of attacks, YorKlinic will have to establish security protocols that will encompass everyone in the company. Because the medical data will need to be accessed often \textbf{citation needed}, measures need to be taken to ensure secure access and proper handling of the data. As the data is stored on a cloud server, it is of utmost importance that the access credentials are not intercepted. 
-
-    \end{itemize} 
-
-\item Challenges for a small-scale company working in an enterprise-scale security model AWS is an enterprise-scale service which accommodates small-scale companies, but this does not come without costs. Encryption of all data will be required but introduces an overhead in storing and retrieving the data, which is worsened by the fact that it is all stored off-site. However, this also reduces the risk when compared to storing the data on-site, where a physical threat is more likely and attackers would have more ready access to the infrastructure.
-
-\end{itemize} 
 \end{document}
